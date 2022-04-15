@@ -1,5 +1,5 @@
 require("@nomiclabs/hardhat-waffle");
-require('dotenv').config({path: '.env'});
+require('dotenv').config({ path: '.env' });
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -23,8 +23,8 @@ const getEnv = (variable, optional = false) => {
   return process.env[variable]?.replace(/\\n/gm, '\n')
 }
 
-// Your mnemomic key
- const MNEMONIC = getEnv("MNEMONIC")
+// Your private key
+const PRIVATE_KEY = getEnv("PRIVATE_KEY")
 
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more
@@ -32,15 +32,12 @@ const getEnv = (variable, optional = false) => {
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
- module.exports = {
+module.exports = {
   solidity: "0.8.4",
   networks: {
     alfajores: {
       url: "https://alfajores-forno.celo-testnet.org",
-      accounts: {
-        mnemonic: process.env.MNEMONIC,
-        path: "m/44'/60'/0'/0",
-      },
+      accounts: [process.env.PRIVATE_KEY],
       chainId: 44787,
     },
   },
