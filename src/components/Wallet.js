@@ -9,7 +9,7 @@ const Wallet = ({ address, amount, symbol, destroy }) => {
       <>
         <Dropdown>
           <Dropdown.Toggle
-            variant="light"
+            variant="success"
             align="end"
             id="dropdown-basic"
             className="d-flex align-items-center border rounded-pill py-1"
