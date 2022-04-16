@@ -13,16 +13,24 @@ async function main() {
   // manually to make sure everything is compiled
   // await hre.run('compile');
 
-  const Counter = await hre.ethers.getContractFactory("Counter");
-  const deployed = await Counter.deploy();
+  const myNFTFactory = await hre.ethers.getContractFactory("MyNFT");
+  const myNFT = await myNFTFactory.deploy();
 
-  await deployed.deployed();
+  await myNFT.deployed();
 
-  console.log("Contract deployed to:", deployed.address);
-  storeContractData(deployed)
+  console.log("My NFT Contract deployed to:", myNFT.address);
+
+  const nftTraderFactory = await hre.ethers.getContractFactory("NFTTrader");
+  const nftTrader = await nftTraderFactory.deploy();
+
+  console.log("NFT Trader Contract deployed to:", nftTrader.address);
+  await nftTrader.deployed();
+  storeContractData(myNFT, "MyNFT")
+  storeContractData(nftTrader, "NFTTrader")
 }
 
-function storeContractData(contract) {
+//Changed storeContractData to be more flexible when creating multiple contracts
+function storeContractData(contract, contractName) {
   const fs = require("fs");
   const contractsDir = __dirname + "/../src/contracts";
 
@@ -31,15 +39,15 @@ function storeContractData(contract) {
   }
 
   fs.writeFileSync(
-    contractsDir + "/CounterAddress.json",
-    JSON.stringify({ Counter: contract.address }, undefined, 2)
+    contractsDir + `/${contractName}-address.json`,
+    JSON.stringify({ Address: contract.address }, undefined, 2)
   );
 
-  const CounterArtifact = artifacts.readArtifactSync("Counter");
+  const contractArtifact = artifacts.readArtifactSync(contractName);
 
   fs.writeFileSync(
-    contractsDir + "/Counter.json",
-    JSON.stringify(CounterArtifact, null, 2)
+    contractsDir + `/${contractName}.json`,
+    JSON.stringify(contractArtifact, null, 2)
   );
 }
 
