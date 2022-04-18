@@ -65,7 +65,7 @@ const NftList = ({ minterContract, name }) => {
                 {!loading ? (
                     <>
                         <div className="d-flex justify-content-between align-items-center mb-4">
-                            <h1 className="fs-4 fw-bold mb-0">{name}</h1>
+                            <h1 className="fs-4 fw-bold mb-0 font-monospace">{name}</h1>
                             {nftOwner === address ? (
                                 <AddNFTs save={addNft} address={address} />
                             ) : null}

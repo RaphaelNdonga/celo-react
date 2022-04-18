@@ -18,7 +18,9 @@ const App = function AppWrapper() {
     <>
       <Notification />
       {address ? (
-        <Container fluid="md">
+        <Container style={{ background: "#add8e6" }}
+          fluid="md"
+        >
           <Nav className="justify-content-end pt-3 pb-5">
             <Nav.Item>
               {/*display user wallet*/}
@@ -33,7 +35,7 @@ const App = function AppWrapper() {
           {/* display cover */}
           <main>
             <Nfts
-              name="Geo Collection"
+              name="Digital Art Collection"
               updateBalance={getBalance}
               minterContract={minterContract}
             />

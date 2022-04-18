@@ -49,11 +49,11 @@ const AddNfts = ({ save, address }) => {
         <>
             <Button
                 onClick={handleShow}
-                variant="dark"
-                className="rounded-pill px-0"
+                variant="success"
+                className="rounded-pill px-0 fs-4 fw-bold m-5"
                 style={{ width: "38px" }}
             >
-                <i className="bi bi-plus"></i>
+                +
             </Button>
             {/* Modal */}
             <Modal show={show} onHide={handleClose} centered>
