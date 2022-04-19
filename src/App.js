@@ -18,7 +18,7 @@ const App = function AppWrapper() {
     <>
       <Notification />
       {address ? (
-        <Container style={{ background: "#add8e6" }}
+        <Container
           fluid="md"
         >
           <Nav className="justify-content-end pt-3 pb-5">
