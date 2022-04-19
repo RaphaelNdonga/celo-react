@@ -73,14 +73,16 @@ const NftCard = ({ nft }) => {
                         </Row>
                     </div>
                 </Card.Body>
-                <Card.Footer className="d-flex justify">
-                    <Button hidden={!showButton} onClick={() => {
+                <Card.Footer className="d-flex justify-content-center">
+                    <Button hidden={!showButton} onClick={async () => {
                         if (buttonState === "Sell") {
-                            acquireNft(minterContract, index, performActions)
+                            await acquireNft(minterContract, index, performActions);
+                            window.location.reload();
                         }
                         if (buttonState === "Buy") {
                             console.log("in the button buy state")
-                            sellNft(traderContract, index, performActions)
+                            await sellNft(traderContract, index, performActions);
+                            window.location.reload();
                         }
                     }
                     }>
