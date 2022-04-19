@@ -9,7 +9,7 @@ import { acquireNft, sellNft } from "../../../utils/trader";
 import traderAddress from "../../../contracts/NFTTrader-address.json"
 
 const NftCard = ({ nft }) => {
-    const { image, description, owner, name, index, attributes } = nft;
+    const { image, description, owner, name, index } = nft;
     const { address, performActions } = useContractKit();
     const traderContract = useTraderContract();
     const minterContract = useMinterContract();
@@ -56,22 +56,6 @@ const NftCard = ({ nft }) => {
                 <Card.Body className="d-flex flex-column text-center">
                     <Card.Title>{name}</Card.Title>
                     <Card.Text className="flex-grow-1">{description}</Card.Text>
-                    <div>
-                        <Row className="mt-2">
-                            {attributes.map((attribute, key) => (
-                                <Col key={key}>
-                                    <div className="border rounded bg-light">
-                                        <div className="text-secondary fw-lighter small text-capitalize">
-                                            {attribute.trait_type}
-                                        </div>
-                                        <div className="text-secondary text-capitalize font-monospace">
-                                            {attribute.value}
-                                        </div>
-                                    </div>
-                                </Col>
-                            ))}
-                        </Row>
-                    </div>
                 </Card.Body>
                 <Card.Footer className="d-flex justify-content-center">
                     <Button hidden={!showButton} onClick={async () => {
