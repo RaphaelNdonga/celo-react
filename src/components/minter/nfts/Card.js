@@ -1,11 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { Card, Col, Badge, Stack, Row } from "react-bootstrap";
+import { Card, Col, Badge, Stack, Row, Button } from "react-bootstrap";
 import { truncateAddress } from "../../../utils";
 import Identicon from "../../ui/Identicon";
+import { useContractKit } from "@celo-tools/use-contractkit";
+import { useTraderContract, useMinterContract } from "../../../hooks";
+import { acquireNft, sellNft } from "../../../utils/trader";
+import traderAddress from "../../../contracts/NFTTrader-address.json"
 
 const NftCard = ({ nft }) => {
     const { image, description, owner, name, index, attributes } = nft;
+    const { address, performActions } = useContractKit();
+    const traderContract = useTraderContract();
+    const minterContract = useMinterContract();
+
+    const [buttonState, setButtonState] = useState("");
+    const [showButton, setShowButton] = useState(false);
+
+    useEffect(() => {
+        let traderHasNFT = traderAddress.Address === owner;
+        console.log("trader address is: ", traderAddress.Address);
+        console.log("owner address is: ", owner);
+        if (traderHasNFT) {
+            setButtonState("Buy");
+            setShowButton(true);
+        }
+        if (!traderHasNFT && address === owner) {
+            setButtonState("Sell");
+            setShowButton(true);
+        }
+
+        if (!traderHasNFT && address !== owner) {
+            setShowButton(false);
+        }
+    }, [owner, address])
 
     return (
         <Col key={index}>
@@ -45,6 +73,20 @@ const NftCard = ({ nft }) => {
                         </Row>
                     </div>
                 </Card.Body>
+                <Card.Footer className="d-flex justify">
+                    <Button hidden={!showButton} onClick={() => {
+                        if (buttonState === "Sell") {
+                            acquireNft(minterContract, index, performActions)
+                        }
+                        if (buttonState === "Buy") {
+                            console.log("in the button buy state")
+                            sellNft(traderContract, index, performActions)
+                        }
+                    }
+                    }>
+                        {buttonState}
+                    </Button>
+                </Card.Footer>
             </Card>
         </Col>
     );

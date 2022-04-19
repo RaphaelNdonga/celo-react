@@ -24,16 +24,16 @@ describe("NFT Trader", function () {
     });
 
     it("Should receive an nft properly", async function () {
-        let txn = await myNFTContract.transferFrom(owner.address, acc1.address, 0);
+        let txn = await myNFTContract.transferFrom(owner.address, nftTraderContract.address, 0);
         await txn.wait();
-        expect(await myNFTContract.ownerOf(0)).to.equal(acc1.address);
+        expect(await myNFTContract.ownerOf(0)).to.equal(nftTraderContract.address);
     });
 
     it("Should send nft properly", async function () {
         let txn = await myNFTContract.transferFrom(owner.address, nftTraderContract.address, 0);
         await txn.wait();
-        txn = await nftTraderContract.sendNFT(acc2.address, myNFTContract.address, 0);
+        txn = await nftTraderContract.sendNFT(owner.address, myNFTContract.address, 0);
         await txn.wait();
-        expect(await myNFTContract.ownerOf(0)).to.equal(acc2.address);
+        expect(await myNFTContract.ownerOf(0)).to.equal(owner.address);
     })
 })

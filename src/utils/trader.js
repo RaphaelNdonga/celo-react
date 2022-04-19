@@ -1,14 +1,29 @@
-import MyNftAddress from "../contracts/MyNFT-address.json"
+import traderAddress from "../contracts/NFTTrader-address.json"
+import myNftAddress from "../contracts/MyNFT-address.json"
+import { useMinterContract } from "../hooks";
 
-export const sendNft = async (traderContract, index, performActions) => {
-    const { receiver, token, tokenId } = saleDetails;
+export const sellNft = async (traderContract, index, performActions) => {
     await performActions(async (kit) => {
         const { defaultAccount } = kit;
         try {
-            let transaction = await traderContract.methods.sendNft(defaultAccount, MyNftAddress.Address, index).send({ from: defaultAccount });
+            let transaction = await traderContract.methods.sendNFT(defaultAccount, myNftAddress.Address, index).send({ from: defaultAccount });
+            console.log("Trying to sell nft txn: ", transaction);
             return transaction;
         } catch (error) {
-            console.log("Error while sending nft: ", error);
+            console.log("Error while selling nft: ", error);
+        }
+    })
+}
+
+export const acquireNft = async (minterContract, index, performActions) => {
+    await performActions(async (kit) => {
+        const { defaultAccount } = kit;
+        try {
+            let txn = await minterContract.methods.transferFrom(defaultAccount, traderAddress.Address, index).send({ from: defaultAccount });
+            console.log("Trying to acquire nft, txn: ", txn);
+            return txn;
+        } catch (error) {
+            console.log("Error buying nft: ", error);
         }
     })
 }
