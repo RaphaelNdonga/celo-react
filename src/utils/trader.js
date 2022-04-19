@@ -2,6 +2,7 @@ import traderAddress from "../contracts/NFTTrader-address.json"
 import myNftAddress from "../contracts/MyNFT-address.json"
 import { useMinterContract } from "../hooks";
 
+//sending nft from trader contract
 export const sellNft = async (traderContract, index, performActions) => {
     await performActions(async (kit) => {
         const { defaultAccount } = kit;
@@ -14,6 +15,8 @@ export const sellNft = async (traderContract, index, performActions) => {
         }
     })
 }
+
+//sending nft to trader contract
 
 export const acquireNft = async (minterContract, index, performActions) => {
     await performActions(async (kit) => {

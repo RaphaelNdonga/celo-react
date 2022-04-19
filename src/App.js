@@ -43,7 +43,7 @@ const App = function AppWrapper() {
         </Container>
       ) : (
         // display cover if user is not connected
-        <Cover name="Geo collection" coverImg={coverImg} connect={connect} />
+        <Cover name="Digital Art collection" coverImg={coverImg} connect={connect} />
       )}
     </>
   );
