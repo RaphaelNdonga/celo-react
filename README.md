@@ -1,5 +1,5 @@
 # [OPEN LAKE](https://raphaelndonga.github.io/open-lake)
-[!OPENLAKE Screenshot](/src/assets/img/screenshot.png)
+[](/src/assets/img/screenshot.png)
 
 ## 1. Project Functionality
 This project is inspired by the celo-react-boilerplate tutorial. It involved creating and displaying nfts. This project goes a step further by enabling the buying and selling of nfts on the platform. 
