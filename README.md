@@ -1,5 +1,7 @@
-# [OPEN LAKE](https://raphaelndonga.github.io/open-lake)
-[](/src/assets/img/screenshot.png)
+# [PROJECT LINK](https://raphaelndonga.github.io/open-lake)
+<div align="center">
+      <h1> <img src="https://www.thewindowsclub.com/wp-content/uploads/2021/03/Etherium.png" width="500px"><br/>OPEN LAKE</h1>
+     </div>
 
 ## 1. Project Functionality
 This project is inspired by the celo-react-boilerplate tutorial. It involved creating and displaying nfts. This project goes a step further by enabling the buying and selling of nfts on the platform. 
