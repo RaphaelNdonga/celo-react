@@ -1,10 +1,13 @@
-# [PROJECT LINK](https://raphaelndonga.github.io/celo-react)
+# [OPEN LAKE](https://raphaelndonga.github.io/celo-react)
+[!OPENLAKE Screenshot](/src/assets/img/screenshot.png)
 
 ## 1. Project Functionality
 This project is inspired by the celo-react-boilerplate tutorial. It involved creating and displaying nfts. This project goes a step further by enabling the buying and selling of nfts on the platform. 
+
 To 'sell' an nft, you send it to a smart contract that has the capability to accept 
-ERC721 tokens, called an ERC721Holder.
-To 'buy' an nft, you receive it from the same smart contract.
+ERC721 tokens, called an ERC721Holder. This only charges a gas fee. The seller's address is stored within the smart contract.
+
+To 'buy' an nft, you receive it from the same smart contract. You have to give some cUsd first before you can receive the nft. When the smart contract sends out the nft to the buyer, it compensates the seller.
 
 ## 2. Tech Stack
 This boilerplate uses the following tech stack:
