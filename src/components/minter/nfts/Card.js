@@ -4,7 +4,7 @@ import { Card, Col, Badge, Stack, Row, Button } from "react-bootstrap";
 import { truncateAddress } from "../../../utils";
 import Identicon from "../../ui/Identicon";
 import { useContractKit } from "@celo-tools/use-contractkit";
-import { useTraderContract, useMinterContract } from "../../../hooks";
+import { useTraderContract, useMinterContract, useERC20Contract } from "../../../hooks";
 import { acquireNft, sellNft } from "../../../utils/trader";
 import traderAddress from "../../../contracts/NFTTrader-address.json"
 
@@ -13,6 +13,7 @@ const NftCard = ({ nft }) => {
     const { address, performActions } = useContractKit();
     const traderContract = useTraderContract();
     const minterContract = useMinterContract();
+    const erc20Contract = useERC20Contract();
 
     const [buttonState, setButtonState] = useState("");
     const [showButton, setShowButton] = useState(false);
@@ -60,7 +61,7 @@ const NftCard = ({ nft }) => {
                 <Card.Footer className="d-flex justify-content-center">
                     <Button hidden={!showButton} onClick={async () => {
                         if (buttonState === "Sell") {
-                            await acquireNft(minterContract, index, performActions);
+                            await acquireNft(minterContract, erc20Contract, traderContract, index, performActions);
                             window.location.reload();
                         }
                         if (buttonState === "Buy") {

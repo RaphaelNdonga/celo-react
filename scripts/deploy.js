@@ -21,7 +21,8 @@ async function main() {
   console.log("My NFT Contract deployed to:", myNFT.address);
 
   const nftTraderFactory = await hre.ethers.getContractFactory("NFTTrader");
-  const nftTrader = await nftTraderFactory.deploy();
+  const cUsdTokenAddress = "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1"
+  const nftTrader = await nftTraderFactory.deploy(cUsdTokenAddress);
 
   console.log("NFT Trader Contract deployed to:", nftTrader.address);
   await nftTrader.deployed();

@@ -35,5 +35,11 @@ describe("NFT Trader", function () {
         txn = await nftTraderContract.sendNFT(owner.address, myNFTContract.address, 0);
         await txn.wait();
         expect(await myNFTContract.ownerOf(0)).to.equal(owner.address);
+    });
+
+    it("Should store user data", async function () {
+        let txn = await nftTraderContract.storeUserData(owner.address, 0);
+        await txn.wait();
+        expect(await nftTraderContract.getTokenOwner(0)).to.equal(owner.address);
     })
 })
