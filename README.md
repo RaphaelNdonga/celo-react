@@ -1,6 +1,7 @@
 # [PROJECT LINK](https://raphaelndonga.github.io/open-lake)
+
 <div align="center">
-      <h1> <img src="https://www.thewindowsclub.com/wp-content/uploads/2021/03/Etherium.png" width="500px"><br/>OPEN LAKE</h1>
+      <h1> <img src="./src/assets/img/screenshot.png" width="500px"><br/>OPEN LAKE</h1>
      </div>
 
 ## 1. Project Functionality
