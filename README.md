@@ -1,4 +1,4 @@
-# [OPEN LAKE](https://raphaelndonga.github.io/celo-react)
+# [OPEN LAKE](https://raphaelndonga.github.io/open-lake)
 [!OPENLAKE Screenshot](/src/assets/img/screenshot.png)
 
 ## 1. Project Functionality
