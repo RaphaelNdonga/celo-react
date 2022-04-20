@@ -14,7 +14,7 @@ describe("NFT Trader", function () {
         let myNFTFactory = await ethers.getContractFactory("MyNFT");
         [owner, acc1, acc2] = await ethers.getSigners();
 
-        nftTraderContract = await nftTraderFactory.deploy();
+        nftTraderContract = await nftTraderFactory.deploy("0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1");
         myNFTContract = await myNFTFactory.deploy();
 
         await nftTraderContract.deployed();
@@ -32,7 +32,7 @@ describe("NFT Trader", function () {
     it("Should send nft properly", async function () {
         let txn = await myNFTContract.transferFrom(owner.address, nftTraderContract.address, 0);
         await txn.wait();
-        txn = await nftTraderContract.sendNFT(owner.address, myNFTContract.address, 0);
+        txn = await nftTraderContract.sellNFT(owner.address, myNFTContract.address, 0, 0);
         await txn.wait();
         expect(await myNFTContract.ownerOf(0)).to.equal(owner.address);
     });
