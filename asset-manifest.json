@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/open-lake/static/css/main.df72d49e.chunk.css",
-    "main.js": "/open-lake/static/js/main.52d80211.chunk.js",
-    "main.js.map": "/open-lake/static/js/main.52d80211.chunk.js.map",
+    "main.js": "/open-lake/static/js/main.dd932df6.chunk.js",
+    "main.js.map": "/open-lake/static/js/main.dd932df6.chunk.js.map",
     "runtime-main.js": "/open-lake/static/js/runtime-main.bcfb2d23.js",
     "runtime-main.js.map": "/open-lake/static/js/runtime-main.bcfb2d23.js.map",
     "static/css/2.ef7b31a8.chunk.css": "/open-lake/static/css/2.ef7b31a8.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.ef7b31a8.chunk.css",
     "static/js/2.aa595fcb.chunk.js",
     "static/css/main.df72d49e.chunk.css",
-    "static/js/main.52d80211.chunk.js"
+    "static/js/main.dd932df6.chunk.js"
   ]
 }
