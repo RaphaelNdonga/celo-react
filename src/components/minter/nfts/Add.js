@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import PropTypes from "prop-types";
-import { Button, Modal, Form, FloatingLabel } from "react-bootstrap";
-import { uploadToIpfs } from "../../../utils/minter";
+import {Button, Modal, Form, FloatingLabel} from "react-bootstrap";
+import {uploadToIpfs} from "../../../utils/minter";
+import Loader from "../../ui/Loader";
 
-const AddNfts = ({ save, address }) => {
+const AddNfts = ({save, address}) => {
     const [name, setName] = useState("");
     const [ipfsImage, setIpfsImage] = useState("");
     const [description, setDescription] = useState("");
     const [show, setShow] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const isFormFilled = () => name && ipfsImage && description;
 
@@ -17,13 +19,33 @@ const AddNfts = ({ save, address }) => {
 
     const handleShow = () => setShow(true);
 
+
+    const uploadImage = async (e) => {
+
+        try {
+            setLoading(true)
+
+            const imageUrl = await uploadToIpfs(e);
+            if (!imageUrl) {
+                alert("failed to upload image")
+                return;
+            }
+            setIpfsImage(imageUrl);
+        } catch (e) {
+            console.log({e})
+            alert("failed to upload image")
+        } finally {
+            setLoading(false)
+        }
+    };
+
     return (
         <>
             <Button
                 onClick={handleShow}
                 variant="success"
                 className="rounded-pill px-0 fs-4 fw-bold m-5"
-                style={{ width: "38px" }}
+                style={{width: "38px"}}
             >
                 +
             </Button>
@@ -45,7 +67,7 @@ const AddNfts = ({ save, address }) => {
                                 placeholder="Name of NFT"
                                 onChange={(e) => {
                                     setName(e.target.value);
-                                }} />
+                                }}/>
                         </FloatingLabel>
                         <FloatingLabel
                             controlId="inputDescription"
@@ -55,7 +77,7 @@ const AddNfts = ({ save, address }) => {
                             <Form.Control
                                 as="textarea"
                                 placeholder="Description"
-                                style={{ height: "80px" }}
+                                style={{height: "80px"}}
                                 onChange={(e) => {
                                     setDescription(e.target.value);
                                 }}
@@ -64,14 +86,7 @@ const AddNfts = ({ save, address }) => {
                         <Form.Control
                             type="file"
                             className={"mb-3"}
-                            onChange={async (e) => {
-                                const imageUrl = await uploadToIpfs(e);
-                                if (!imageUrl) {
-                                    alert("failed to upload image")
-                                    return;
-                                }
-                                setIpfsImage(imageUrl);
-                            }}
+                            onChange={uploadImage}
                             placeholder="Product name"
                         ></Form.Control>
                         <Form.Label>
@@ -83,21 +98,25 @@ const AddNfts = ({ save, address }) => {
                     <Button variant="outline-secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button
-                        variant="dark"
-                        disabled={!isFormFilled()}
-                        onClick={() => {
-                            save({
-                                name,
-                                ipfsImage,
-                                description,
-                                ownerAddress: address
-                            });
-                            handleClose();
-                        }}
-                    >
-                        Create NFT
-                    </Button>
+
+                    {loading ? <Loader/> :
+                        <Button
+                            variant="dark"
+                            disabled={!isFormFilled()}
+                            onClick={() => {
+                                save({
+                                    name,
+                                    ipfsImage,
+                                    description,
+                                    ownerAddress: address
+                                });
+                                handleClose();
+                            }}
+                        >
+                            Create NFT
+                        </Button>
+
+                    }
 
                 </Modal.Footer>
             </Modal>

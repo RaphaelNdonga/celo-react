@@ -35,6 +35,7 @@
     "eject": "react-scripts eject",
     "compile": "npx hardhat compile",
     "test-contract": "npx hardhat test",
+    "deploy-contracts": "npx hardhat run --network alfajores scripts/deploy.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },

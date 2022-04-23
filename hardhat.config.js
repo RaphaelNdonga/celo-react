@@ -37,7 +37,7 @@ module.exports = {
   networks: {
     alfajores: {
       url: "https://alfajores-forno.celo-testnet.org",
-      accounts: [process.env.PRIVATE_KEY, process.env.PRIVATE_KEY2, process.env.PRIVATE_KEY3],
+      accounts: [process.env.PRIVATE_KEY],
       chainId: 44787,
     },
   },

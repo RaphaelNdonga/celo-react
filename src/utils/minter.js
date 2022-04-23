@@ -23,9 +23,9 @@ export const createNft = async (
         try {
             const added = await client.add(data);
             const url = `https://ipfs.infura.io/ipfs/${added.path}`
-            let transaction = await minterContract.methods.safeMint(ownerAddress, url).send({ from: defaultAccount });
+            return await minterContract.methods.safeMint(ownerAddress, url).send({ from: defaultAccount });
 
-            return transaction;
+
         } catch (error) {
             console.log("Error uploading file: ", error)
         }
@@ -76,8 +76,8 @@ export const getNfts = async (minterContract) => {
 export const fetchNftMeta = async (ipfsUrl) => {
     try {
         if (!ipfsUrl) return null;
-        const meta = await axios.get(ipfsUrl);
-        return meta;
+        return await axios.get(ipfsUrl);
+
     } catch (error) {
         console.log("Error fetching nft meta: ", error)
     }
@@ -93,8 +93,7 @@ export const fetchNftOwner = async (minterContract, index) => {
 
 export const fetchNftContractOwner = async (minterContract) => {
     try {
-        let owner = await minterContract.methods.owner().call();
-        return owner;
+        return await minterContract.methods.owner().call();
     } catch (error) {
         console.log("Error fetching owner of nft contract: ", error)
     }
