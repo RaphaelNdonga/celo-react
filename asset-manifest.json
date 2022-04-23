@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/celo-react/static/css/main.d87cbb72.chunk.css",
-    "main.js": "/celo-react/static/js/main.cf86e984.chunk.js",
-    "main.js.map": "/celo-react/static/js/main.cf86e984.chunk.js.map",
-    "runtime-main.js": "/celo-react/static/js/runtime-main.baf73eaf.js",
-    "runtime-main.js.map": "/celo-react/static/js/runtime-main.baf73eaf.js.map",
-    "static/css/2.ac236ce5.chunk.css": "/celo-react/static/css/2.ac236ce5.chunk.css",
-    "static/js/2.5b193bd5.chunk.js": "/celo-react/static/js/2.5b193bd5.chunk.js",
-    "static/js/2.5b193bd5.chunk.js.map": "/celo-react/static/js/2.5b193bd5.chunk.js.map",
-    "static/js/3.fe73d3ad.chunk.js": "/celo-react/static/js/3.fe73d3ad.chunk.js",
-    "static/js/3.fe73d3ad.chunk.js.map": "/celo-react/static/js/3.fe73d3ad.chunk.js.map",
-    "index.html": "/celo-react/index.html",
-    "static/css/2.ac236ce5.chunk.css.map": "/celo-react/static/css/2.ac236ce5.chunk.css.map",
-    "static/css/main.d87cbb72.chunk.css.map": "/celo-react/static/css/main.d87cbb72.chunk.css.map",
-    "static/js/2.5b193bd5.chunk.js.LICENSE.txt": "/celo-react/static/js/2.5b193bd5.chunk.js.LICENSE.txt",
-    "static/media/bootstrap-icons.css": "/celo-react/static/media/bootstrap-icons.c1d7432e.woff"
+    "main.css": "/open-lake/static/css/main.df72d49e.chunk.css",
+    "main.js": "/open-lake/static/js/main.31d7d0b5.chunk.js",
+    "main.js.map": "/open-lake/static/js/main.31d7d0b5.chunk.js.map",
+    "runtime-main.js": "/open-lake/static/js/runtime-main.9ee3a6d1.js",
+    "runtime-main.js.map": "/open-lake/static/js/runtime-main.9ee3a6d1.js.map",
+    "static/css/2.ef7b31a8.chunk.css": "/open-lake/static/css/2.ef7b31a8.chunk.css",
+    "static/js/2.0ca16da4.chunk.js": "/open-lake/static/js/2.0ca16da4.chunk.js",
+    "static/js/2.0ca16da4.chunk.js.map": "/open-lake/static/js/2.0ca16da4.chunk.js.map",
+    "static/js/3.a5d5808f.chunk.js": "/open-lake/static/js/3.a5d5808f.chunk.js",
+    "static/js/3.a5d5808f.chunk.js.map": "/open-lake/static/js/3.a5d5808f.chunk.js.map",
+    "index.html": "/open-lake/index.html",
+    "static/css/2.ef7b31a8.chunk.css.map": "/open-lake/static/css/2.ef7b31a8.chunk.css.map",
+    "static/css/main.df72d49e.chunk.css.map": "/open-lake/static/css/main.df72d49e.chunk.css.map",
+    "static/js/2.0ca16da4.chunk.js.LICENSE.txt": "/open-lake/static/js/2.0ca16da4.chunk.js.LICENSE.txt",
+    "static/media/bootstrap-icons.css": "/open-lake/static/media/bootstrap-icons.c1d7432e.woff"
   },
   "entrypoints": [
-    "static/js/runtime-main.baf73eaf.js",
-    "static/css/2.ac236ce5.chunk.css",
-    "static/js/2.5b193bd5.chunk.js",
-    "static/css/main.d87cbb72.chunk.css",
-    "static/js/main.cf86e984.chunk.js"
+    "static/js/runtime-main.9ee3a6d1.js",
+    "static/css/2.ef7b31a8.chunk.css",
+    "static/js/2.0ca16da4.chunk.js",
+    "static/css/main.df72d49e.chunk.css",
+    "static/js/main.31d7d0b5.chunk.js"
   ]
 }
