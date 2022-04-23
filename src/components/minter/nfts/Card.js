@@ -67,7 +67,7 @@ const NftCard = ({ nft }) => {
                         if (buttonState === "Buy") {
                             console.log("in the button buy state")
                             await sellNft(traderContract, erc20Contract, index, performActions);
-                            window.location.reload();
+                            // window.location.reload();
                         }
                     }
                     }>
