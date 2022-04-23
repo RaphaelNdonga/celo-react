@@ -2,13 +2,15 @@ import traderAddress from "../contracts/NFTTrader-address.json"
 import myNftAddress from "../contracts/MyNFT-address.json"
 import { useMinterContract } from "../hooks";
 import BigNumber from "bignumber.js";
+import { ethers } from "ethers";
 
 //sending nft from trader contract
 export const sellNft = async (traderContract, erc20Contract, index, performActions) => {
     await performActions(async (kit) => {
         const { defaultAccount } = kit;
         try {
-            let bigNumberPrice = new BigNumber(1).shiftedBy(18);
+            const bigNumberPrice = ethers.utils.parseUnits("1", 'ether')
+            console.log({ bigNumberPrice })
             let txn = await erc20Contract.methods.transfer(traderAddress.Address, bigNumberPrice).send({ from: defaultAccount });
             let transaction = await traderContract.methods.sellNFT(defaultAccount, myNftAddress.Address, index, bigNumberPrice).send({ from: defaultAccount });
             console.log("Trying to sell nft txn: ", transaction);
